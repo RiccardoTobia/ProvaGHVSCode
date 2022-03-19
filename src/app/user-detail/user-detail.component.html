@@ -1,0 +1,31 @@
+<form [formGroup]='userForm'>
+    <div class='form-group'>
+        <label class='center-block'>
+            UserName:
+            <!-- formControlName lega questo pezzetto di html a createForm -->
+            <input class='form-control' formControlName='name'>
+        </label>
+    </div>
+
+    <div class='form-group'>
+        <label class='center-block'>
+            Ruolo:
+            <select class='form-control' formControlName='role'>
+                <option *ngFor='let ruolo of listaRuoli' [value]='ruolo.id'>
+                    {{ruolo.descrizione}}
+                </option>
+            </select>
+        </label>
+    </div>
+
+    <div class='form-group'>
+        <button class='btn btn-success' (click)='onClickSave()'>Salva</button>
+    </div>
+</form>
+
+<div>
+    <!-- Per monitorare cosa fa il mio form -->
+    <p> Form Value: {{userForm.value | json}}</p>
+    <p> Model: {{currentUser | json}}</p>
+    <p> Form Status: {{userForm.status}}</p>
+</div>

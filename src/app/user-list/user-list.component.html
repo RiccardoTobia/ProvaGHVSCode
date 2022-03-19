@@ -1,0 +1,15 @@
+<div class='container'>
+    <h2>Seleziona un Utente</h2>
+
+    <nav>
+        <a *ngFor='let u of listaUtenti' class='btn' (click)='select(u)'>{{u.username}}</a>
+    </nav>
+
+    <!-- messo così l'if dice che la condizione è vera se selectedUser
+         è diverso da null o undefined -->
+    <div *ngIf='selectedUser'>
+        <h3>Stai modificando l'utente {{selectedUser.username}}</h3>
+        <!-- Quella tra parentesi è la variabile che abbiamo messo sotto input sul ts di user-detail -->
+        <app-user-detail [currentUser]='selectedUser'></app-user-detail>
+    </div>
+</div>
